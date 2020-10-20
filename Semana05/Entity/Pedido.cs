@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    class Pedido
+    public class Pedido
     {
         public int IdPedido { get; set; }
         public string IdCliente { get; set; }
@@ -16,10 +16,10 @@ namespace Entity
         public DateTime FechaEnvio { get; set; }
         public int FormaEnvio { get; set; }
         public decimal Cargo { get; set; }
-        public string Destinario { get; set; }
-        public String DirecciopnDestinario { get; set; }
+        public string Destinatario { get; set; }
+        public String DireccionDestinatario { get; set; }
         public String CiudadDestinatario { get; set; }
-        public String RegionDestinario { get; set; }
+        public String RegionDestinatario { get; set; }
         public String CodPostalDestinatario { get; set; }
         public String PaisDestinatario { get; set; }
         public DateTime FechaInicio { get; set; }

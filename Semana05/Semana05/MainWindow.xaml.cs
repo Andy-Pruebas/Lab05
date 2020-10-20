@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,25 @@ namespace Semana05
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnConsultar_Click(object sender, RoutedEventArgs e)
+        {
+            BPedido bPedido = null;
+            try
+            {
+                bPedido = new BPedido();
+                dgvPedido.ItemsSource = bPedido.GetPedidosEntreFechas(Convert.ToDateTime(txtFechaInicio.Text),
+                                                                      Convert.ToDateTime(txtFechaFin.Text));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Comunicarse con el Administrador");
+            }
+            finally
+            {
+                bPedido = null;
+            }
         }
     }
 }

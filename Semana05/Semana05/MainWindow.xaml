@@ -6,7 +6,46 @@
         xmlns:local="clr-namespace:Semana05"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <StackPanel>
+            <Label Content="PEDIDO DE RANGS POR FECHA"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Fecha Inicio</Label>
+            <TextBox x:Name="txtFechaInicio" Text="01/01/1990"/>
+            <Label>Fecha Fin</Label>
+            <TextBox x:Name="txtFechaFin" Text="01/01/1990"/>
+            <Button x:Name="btnConsultar" Click="btnConsultar_Click">Consultar</Button>
+        </StackPanel>
+        <StackPanel>
+            <DataGrid Height="180px" x:Name="dgvPedido" AutoGenerateColumns="True"
+                      GridLinesVisibility="Vertical" HeadersVisibility="All"
+                      Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue"
+                      BorderBrush="Gray" BorderThickness="5">
+            </DataGrid>
+            <StackPanel>
+                <Label Content="DETALLE DE PEDIDOS"/>
+            </StackPanel>
+            <StackPanel>
+                <DataGrid Height="100px" x:Name="dgvDetallePedido"
+                          AutoGenerateColumns="True"
+                          GridLinesVisibility="Vertical" HeadersVisibility="All"
+                          Background="LightGray" RowBackground="LightYellow"
+                          AlternatingRowBackground="LightBlue" BorderBrush="Gray"
+                          BorderThickness="5"
+                          />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Total"/>
+                <TextBox x:Name="txtTotal" IsReadOnly="True"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
