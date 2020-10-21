@@ -5,47 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Semana05"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1024">
     <Window.Resources>
         <Style TargetType="Label">
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
-            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="14"/>
         </Style>
     </Window.Resources>
     <Grid>
         <StackPanel>
-            <Label Content="PEDIDO DE RANGS POR FECHA"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Label>Fecha Inicio</Label>
-            <TextBox x:Name="txtFechaInicio" Text="01/01/1990"/>
-            <Label>Fecha Fin</Label>
-            <TextBox x:Name="txtFechaFin" Text="01/01/1990"/>
-            <Button x:Name="btnConsultar" Click="btnConsultar_Click">Consultar</Button>
-        </StackPanel>
-        <StackPanel>
-            <DataGrid Height="180px" x:Name="dgvPedido" AutoGenerateColumns="True"
-                      GridLinesVisibility="Vertical" HeadersVisibility="All"
-                      Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue"
-                      BorderBrush="Gray" BorderThickness="5">
-            </DataGrid>
             <StackPanel>
-                <Label Content="DETALLE DE PEDIDOS"/>
-            </StackPanel>
-            <StackPanel>
-                <DataGrid Height="100px" x:Name="dgvDetallePedido"
-                          AutoGenerateColumns="True"
-                          GridLinesVisibility="Vertical" HeadersVisibility="All"
-                          Background="LightGray" RowBackground="LightYellow"
-                          AlternatingRowBackground="LightBlue" BorderBrush="Gray"
-                          BorderThickness="5"
-                          />
+                <Label Content="PEDIDO DE RANGOS POR FECHA" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label Content="Total"/>
-                <TextBox x:Name="txtTotal" IsReadOnly="True"/>
+                <Label>Fecha Inicio</Label>
+                <TextBox x:Name="txtFechaInicio" Text="1996-04-06"/>
+                <Label>Fecha Fin</Label>
+                <TextBox x:Name="txtFechaFin" Text="1996-05-06"/>
+                <Button x:Name="btnConsultar" Click="BtnConsultar_Click" >Consultar</Button>
             </StackPanel>
-        </StackPanel>
+
+            <StackPanel>
+                <DataGrid Height="254" x:Name="dgvPedido" AutoGenerateColumns="True"
+                          GridLinesVisibility="Vertical" HeadersVisibility="All"
+                          Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue"
+                          BorderBrush="Gray" BorderThickness="5" Width="1000" Margin="8,0">
+                </DataGrid>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="DETALLE DE PEDIDO POR ID" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Id del Pedido</Label>
+                <TextBox x:Name="txtIdPedido" Text="0001"/>
+                <Button x:Name="btnGetDetalles" Click="BtnObtenerDetalles_Click" >Obtener Detalles</Button>
+            </StackPanel>
+            <StackPanel>
+                <DataGrid Height="162" x:Name="dgvDetallePedido" AutoGenerateColumns="True"
+                          GridLinesVisibility="Vertical" HeadersVisibility="All"
+                          Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue"
+                          BorderBrush="Gray" BorderThickness="5" Width="1000" Margin="8,0">
+                </DataGrid>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="TOTAL"/>
+                <TextBox x:Name="txtTotal" IsReadOnly="True"></TextBox>
+            </StackPanel>
+
+        </StackPanel >
+
     </Grid>
 </Window>

@@ -26,7 +26,7 @@ namespace Semana05
             InitializeComponent();
         }
 
-        private void btnConsultar_Click(object sender, RoutedEventArgs e)
+        private void BtnConsultar_Click(object sender, RoutedEventArgs e)
         {
             BPedido bPedido = null;
             try
@@ -38,10 +38,32 @@ namespace Semana05
             catch (Exception)
             {
                 MessageBox.Show("Comunicarse con el Administrador");
+
+
             }
             finally
             {
                 bPedido = null;
+            }
+        }
+        private void BtnObtenerDetalles_Click(object sender, RoutedEventArgs e)
+        {
+            BDetallePedido bDetallePedido = null;
+            try
+            {
+                bDetallePedido = new BDetallePedido();
+                dgvDetallePedido.ItemsSource = bDetallePedido.GetDetallePedidosPorId(Convert.ToInt32(txtIdPedido.Text));
+
+                txtTotal.Text = Convert.ToString(bDetallePedido.GetDetalleTotalPorId(Convert.ToInt32(txtIdPedido.Text)));
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Comunicarse con el Administrador");
+            }
+            finally
+            {
+                bDetallePedido = null;
             }
         }
     }
